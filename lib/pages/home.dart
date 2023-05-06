@@ -10,22 +10,8 @@ class SocHub extends StatefulWidget {
 }
 
 class _SocHubState extends State<SocHub> {
+  
   List<List<Map<String, dynamic>>> _data = [];
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Fetch data from MongoDB when the app starts
-  //   _fetchData();
-  // }
-  //
-  // Future<void> _fetchData() async {
-  //   var data = await DataService.fetchData();
-  //
-  //   setState(() {
-  //     _data = data;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -114,6 +100,7 @@ class _SocHubState extends State<SocHub> {
             )
         ]
       ),
+      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         selectedItemColor: const Color(0xffCCFF00),
