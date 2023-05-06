@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sochub/widgets/app_text.dart';
-
-import '../Services/data_services.dart';
+import '../services/data_services.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
