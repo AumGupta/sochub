@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sochub/widgets/feed_video.dart';
 import '../widgets/profile_update.dart';
-import 'package:sochub/Services/data_services.dart';
 
 class SocHub extends StatefulWidget {
   const SocHub({Key? key}) : super(key: key);
