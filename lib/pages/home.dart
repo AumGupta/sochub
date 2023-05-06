@@ -11,7 +11,7 @@ class SocHub extends StatefulWidget {
 }
 
 class _SocHubState extends State<SocHub> {
-  
+
   List<List<Map<String, dynamic>>> _data = [];
 
   @override
@@ -102,7 +102,6 @@ class _SocHubState extends State<SocHub> {
             )
         ]
       ),
-      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         selectedItemColor: const Color(0xffCCFF00),

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sochub/widgets/app_text.dart';
 import 'package:sochub/widgets/semi_bold_text.dart';
-import 'package:sochub/widgets/bold_text.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -52,29 +51,36 @@ class FeedVideo extends StatelessWidget {
                             image: MemoryImage(base64Decode(organizerLogo))
                         ),
                         borderRadius: BorderRadius.circular(24.0),
-                        color: Colors.red,
                       ),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                        eventName,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                            width: 240,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              clipBehavior: Clip.antiAlias,
+                              child: Text(
+                                eventName,
+                                softWrap: false,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24,
+                                  ),
+                                ),
+                              ),
+                            )
                         ),
-                      ),
-                          AppText(text: organizerName),
-                        ],
-                      ),
+
+                        AppText(text: organizerName),
+                      ],
                     ),
                   ],
                 ),
@@ -151,7 +157,7 @@ class FeedVideo extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                    child: SemiBoldText(text: "Register"),
+                    child: SemiBoldText(text: "Register", color: Colors.white,),
                   ),
                 ],
               ),
