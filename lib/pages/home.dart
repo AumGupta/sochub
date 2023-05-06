@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sochub/widgets/feed_video.dart';
+import 'package:sochub/widgets/semi_bold_text.dart';
 import '../widgets/profile_update.dart';
 
 class SocHub extends StatefulWidget {
@@ -21,6 +22,7 @@ class _SocHubState extends State<SocHub> {
       backgroundColor: const Color(0xFF2F2F2F),
 
       appBar: AppBar(
+        title: SemiBoldText(text: "SocHub",color: Colors.white, size: 24,),
         backgroundColor: const Color(0xFF222222),
         scrolledUnderElevation: 0,
         leading: Builder(
