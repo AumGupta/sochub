@@ -11,6 +11,7 @@ class BoldText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      overflow: TextOverflow.ellipsis,
       style: GoogleFonts.poppins(
         textStyle: TextStyle(
           fontWeight: FontWeight.bold,
