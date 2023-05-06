@@ -1,10 +1,26 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sochub/widgets/app_text.dart';
 import 'package:sochub/widgets/semi_bold_text.dart';
 import 'package:sochub/widgets/bold_text.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class FeedVideo extends StatelessWidget {
-  const FeedVideo({Key? key}) : super(key: key);
+  String eventName;
+  String organizerName;
+  String image;
+  String organizerLogo;
+  int registrationPrice;
+  int prizePool;
+  FeedVideo({Key? key,
+    required this.eventName,
+    required this.organizerName,
+    required this.organizerLogo,
+    required this.image,
+    required this.registrationPrice,
+    required this.prizePool,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +32,7 @@ class FeedVideo extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.all(10),
-        height: 720,
+        height: 660,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,6 +48,9 @@ class FeedVideo extends StatelessWidget {
                       height: 65,
                       width: 65,
                       decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: MemoryImage(base64Decode(organizerLogo))
+                        ),
                         borderRadius: BorderRadius.circular(24.0),
                         color: Colors.red,
                       ),
@@ -39,12 +58,23 @@ class FeedVideo extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BoldText(text: "Event Name",),
-                        AppText(text: "Organiser Name"),
-                      ],
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                        eventName,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          ),
+                        ),
+                      ),
+                          AppText(text: organizerName),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -60,7 +90,16 @@ class FeedVideo extends StatelessWidget {
 
               ],
             ),
-            
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: MemoryImage(base64Decode(image)),
+                  fit: BoxFit.contain,
+                ),
+                color: Colors.black,
+              ),
+              height: 480,
+            ),
             // footer
             Container(
               padding: const EdgeInsets.all(10),
@@ -83,7 +122,7 @@ class FeedVideo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SemiBoldText(text: "₹7,000",),
+                      SemiBoldText(text: "₹$prizePool",),
                       AppText(text: "Prize Pool", size: 10, color: Colors.grey,),
                     ],
                   ),
@@ -97,7 +136,7 @@ class FeedVideo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SemiBoldText(text: "₹49",),
+                      SemiBoldText(text: "₹$registrationPrice",),
                       AppText(text: "Registration", size: 10, color: Colors.grey,),
                     ],
                   ),
